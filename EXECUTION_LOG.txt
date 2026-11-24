@@ -1,0 +1,27 @@
+# pricewatch execution log (2026-11-24 18:57 IST)
+
+$ python -m unittest discover -s tests
+Ran 15 tests in 0.035s
+OK
+
+$ pricewatch add bitcoin above 100000
+Added alert #1: bitcoin above 100000 (usd)
+
+$ pricewatch add ethereum below 2000
+Added alert #2: ethereum below 2000 (usd)
+
+$ pricewatch add solana pct_change 5
+Added alert #3: solana pct_change 5 (usd)
+
+$ pricewatch list
+#1   bitcoin/usd above 100000  last fired: never
+#2   ethereum/usd below 2000  last fired: never
+#3   solana/usd pct_change 5  last fired: never
+
+$ pricewatch check
+2026-11-24 18:57:44,648 WARNING pricewatch.api: Fetch failed (<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>); retry 1/3 in 1.5s
+2026-11-24 18:57:46,174 WARNING pricewatch.api: Fetch failed (<urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>); retry 2/3 in 2.2s
+error: could not fetch prices for ['bitcoin', 'ethereum', 'solana']: <urlopen error Tunnel connection failed: 403 Forbidden (agent proxy: no rule or network setting allows this host)>
+
+$ pricewatch report
+coin  vs  samples  min  max  avg  last

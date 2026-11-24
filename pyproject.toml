@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pricewatch"
+version = "1.0.0"
+description = "Real-time crypto price alert bot with a CLI, SQLite storage and scheduled checks."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Your Name" }]
+keywords = ["crypto", "alerts", "automation", "cli", "coingecko"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+]
+dependencies = []
+
+[project.scripts]
+pricewatch = "pricewatch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
